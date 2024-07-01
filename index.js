@@ -213,6 +213,7 @@ function parsePipelineYaml({
             // Check warnMessages
             .then(({ doc, warnings }) => {
                 warnMessages = warnMessages.concat(warnings, validateReservedAnnotation(doc));
+                console.log('-------warnMessages: ', warnMessages);
 
                 return doc;
             })
@@ -233,6 +234,8 @@ function parsePipelineYaml({
                 if (warnMessages.length > 0) {
                     res.warnMessages = warnMessages;
                 }
+
+                console.log('-------warnMessages2: ', warnMessages);
 
                 if (Hoek.deepEqual(res.childPipelines, {})) {
                     delete res.childPipelines;

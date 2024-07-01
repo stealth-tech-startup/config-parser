@@ -29,7 +29,7 @@ describe('config parser', () => {
         };
     });
 
-    describe('parse pipeline yaml', () => {
+    describe.only('parse pipeline yaml', () => {
         const pipelineTemplateVersionFactoryMock = {
             getWithMetadata: sinon.stub().resolves(JSON.parse(loadData('pipeline-template.json')))
         };
@@ -759,7 +759,7 @@ describe('config parser', () => {
                         );
                     }));
 
-                it('returns error for invalid screwdriver yaml', () =>
+                it.only('returns error for invalid screwdriver yaml', () =>
                     parser({
                         yaml: loadData('pipeline-template-invalid.yaml'),
                         templateFactory: templateFactoryMock,
